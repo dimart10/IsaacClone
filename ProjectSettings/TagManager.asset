@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1848323397
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1555101217
+    locked: 0
+  - name: Objects
+    uniqueID: 2789112261
+    locked: 0
+  - name: Player
+    uniqueID: 2910810607
+    locked: 0
+  - name: Projectiles
+    uniqueID: 4173730115
+    locked: 0
+  - name: Enemies
+    uniqueID: 4118533905
+    locked: 0
+  - name: HUD
+    uniqueID: 3699829813
+    locked: 0
