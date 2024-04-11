@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     void PlayerInput()
     {
         if (Input.GetButtonDown("Bomb")) Debug.Log("Bomba");
+        if (Input.GetButtonDown("Objeto")) Debug.Log("Utilizo objeto");
+
 
         // Set RigidBody velocity
         Vector2 dir = Vector2.zero;

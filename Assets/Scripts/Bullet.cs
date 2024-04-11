@@ -24,4 +24,17 @@ public class Bullet : MonoBehaviour
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Background")
+        {
+            Death();
+        }
+    }
+
+
+    private void Death()
+    {
+        Destroy(this);
+    }
 }
