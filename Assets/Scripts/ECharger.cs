@@ -42,6 +42,14 @@ public class ECharger : MonoBehaviour
     private void ChargingUpdate()
     {
         // Colisiones con paredes?
+        rb.velocity = directions[(int)direction] * chargeSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Background"){
+            EndCharge();
+        }
     }
 
     private void IdleUpdate()

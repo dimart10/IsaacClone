@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339084791041429486}
   - component: {fileID: 7217239419147309189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9019970147255665328}
   - component: {fileID: 2344250541420035531}
   - component: {fileID: 3934051184902185449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9d7619eabda0a49818c9e2cd3fd1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSpeed: 3
+  idleSpeed: 2
   chargeSpeed: 10
   idleDirChangeTime: 2
-  chargeDuration: 3
+  chargeDuration: 2
   chargeRange: 1
   chargeDelay: 1
   direction: 1

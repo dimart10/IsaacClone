@@ -7,7 +7,9 @@ public class Bullet : MonoBehaviour
     private Vector2[] direcciones = { new Vector2(0, 1), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(1, 0) };
     public Rigidbody2D rb;
 
+    public float damage = 1f;
     public float speed = 6f;
+    public GameObject deathParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -24,17 +26,22 @@ public class Bullet : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Background")
         {
             Death();
         }
+        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Enemies")
+        {
+            collision.gameObject.GetComponent<Enemy>().Damage(damage);
+            Death();
+        }
     }
-
 
     private void Death()
     {
-        Destroy(this);
+        Destroy(gameObject);
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
     }
 }
