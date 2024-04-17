@@ -9,7 +9,7 @@ public interface IHat
     void AssignDirection(Dir dir);
 
     // Anchor positions for other hats
-    Vector3 bottomAnchor { get; set; }
-    Vector3 topAnchor { get; set;  }
+    GameObject bottomAnchor { get; set; }
+    GameObject topAnchor { get; set;  }
     Dir hDirection { get; set; }
 }
