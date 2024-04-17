@@ -43,7 +43,7 @@ public class TopHat : MonoBehaviour, IHat
     public void AssignDirection(Dir dir)
     {
         hDirection = dir;
-        switch(dir)
+        /*switch(dir)
             {
                 case Dir.UP: anim.Play("IdleUp"); break;
                 case Dir.DOWN: anim.Play("IdleDown"); break;
@@ -51,5 +51,6 @@ public class TopHat : MonoBehaviour, IHat
                 case Dir.LEFT: anim.Play("IdleLeft"); break;
                 //default: anim.Play("IdleDown"); break;
             }
-        }
+        */
+    }
 }
