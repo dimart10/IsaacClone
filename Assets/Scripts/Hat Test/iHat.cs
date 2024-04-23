@@ -12,4 +12,6 @@ public interface IHat
     GameObject bottomAnchor { get; set; }
     GameObject topAnchor { get; set;  }
     Dir hDirection { get; set; }
+
+    GameObject gameObject { get; }
 }

@@ -29,12 +29,22 @@ public class PlayerHeadHats : MonoBehaviour
         anim = GetComponent<Animator>();
         body = GetComponentInParent<Player>();
         hats = GetComponentsInChildren<IHat>();
+        PlaceHats();
     }
 
     // Update is called once per frame
     void Update()
     {
         HeadInput();
+    }
+
+    void PlaceHats()
+    {
+        for (int i = 0; i < hats.Length; i++)
+        {
+            hats[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder = i;
+            hats[i].gameObject.transform.position = gameObject.transform.position + new Vector3(0, 1*i+1, 0);
+        }
     }
 
     void HeadInput()
@@ -94,7 +104,10 @@ public class PlayerHeadHats : MonoBehaviour
         {
             Bullet b = Instantiate(bullet, gunPositions[(int)faceDir].transform.position, Quaternion.identity).GetComponent<Bullet>();
             b.SetBulletDir(faceDir);
-
+            if (faceDir == Dir.UP)
+            {
+                b.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("Objects");
+            }
             foreach (IHat hat in hats)
             {
                 hat.AssignDirection(faceDir);
@@ -104,7 +117,9 @@ public class PlayerHeadHats : MonoBehaviour
             canShoot = false;
             Invoke("EnableShoot", shootDelay);
         }
+
     }
+    
 
     public void EnableShoot()
     {

@@ -42,7 +42,7 @@ public class TopHat : MonoBehaviour, IHat
     {
         Bullet b = Instantiate(bulletPrefab, gunPositions[(int)hDirection].transform.position, Quaternion.identity).GetComponent<Bullet>();
         b.SetBulletDir(hDirection);
-        anim = GetComponent<Animator>();
+        if (hDirection == Dir.UP) b.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("Objects");
     }
 
     public void AssignDirection(Dir dir)

@@ -22,6 +22,7 @@ public class PlayerHats : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         head = GetComponentInChildren<PlayerHeadHats>();
+
     }
 
     // Update is called once per frame

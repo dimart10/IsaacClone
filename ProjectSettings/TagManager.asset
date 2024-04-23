@@ -53,11 +53,11 @@ TagManager:
   - name: Player
     uniqueID: 2910810607
     locked: 0
-  - name: Projectiles
-    uniqueID: 4173730115
-    locked: 0
   - name: Hats
     uniqueID: 2683855321
+    locked: 0
+  - name: Projectiles
+    uniqueID: 4173730115
     locked: 0
   - name: Enemies
     uniqueID: 4118533905
