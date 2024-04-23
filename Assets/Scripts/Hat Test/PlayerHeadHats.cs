@@ -80,6 +80,10 @@ public class PlayerHeadHats : MonoBehaviour
                 case Dir.LEFT: anim.Play("IdleLeft"); break;
                 //default: anim.Play("IdleDown"); break;
             }
+            foreach (IHat hat in hats)
+            {
+                hat.AssignDirection(faceDir);
+            }
         }
         shooting = dir.magnitude > 0;
     }

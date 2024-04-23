@@ -33,6 +33,11 @@ public class TopHat : MonoBehaviour, IHat
     public GameObject[] gunPositions;
     private Animator anim;
 
+    public void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     public void Shoot()
     {
         Bullet b = Instantiate(bulletPrefab, gunPositions[(int)hDirection].transform.position, Quaternion.identity).GetComponent<Bullet>();
@@ -43,14 +48,14 @@ public class TopHat : MonoBehaviour, IHat
     public void AssignDirection(Dir dir)
     {
         hDirection = dir;
-        /*switch(dir)
+        switch(dir)
             {
-                case Dir.UP: anim.Play("IdleUp"); break;
-                case Dir.DOWN: anim.Play("IdleDown"); break;
-                case Dir.RIGHT: anim.Play("IdleRight"); break;
-                case Dir.LEFT: anim.Play("IdleLeft"); break;
+                case Dir.UP: anim.Play("Up"); break;
+                case Dir.DOWN: anim.Play("Down"); break;
+                case Dir.RIGHT: anim.Play("Right"); break;
+                case Dir.LEFT: anim.Play("Left"); break;
                 //default: anim.Play("IdleDown"); break;
             }
-        */
+        
     }
 }
