@@ -68,4 +68,12 @@ public class PlayerHats : MonoBehaviour
         }
         else anim.Play("Idle");
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Sombrero")
+        {
+            head.AddHat(collision.gameObject);
+        }
+    }
 }

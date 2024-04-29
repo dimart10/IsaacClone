@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (LayerMask.LayerToName(collision.gameObject.layer) == "Background")
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Background" || LayerMask.LayerToName(collision.gameObject.layer) == "Obstacles")
         {
             Death();
         }

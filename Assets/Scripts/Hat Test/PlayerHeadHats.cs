@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -21,26 +23,29 @@ public class PlayerHeadHats : MonoBehaviour
     public GameObject[] gunPositions;
     public GameObject bullet;
 
-    public IHat[] hats;
+    public List<IHat> hats;
+
+    private bool addedHatThisFrame = false;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         body = GetComponentInParent<Player>();
-        hats = GetComponentsInChildren<IHat>();
+        hats = GetComponentsInChildren<IHat>().ToList(); ;
         PlaceHats();
     }
 
     // Update is called once per frame
     void Update()
     {
+        addedHatThisFrame = false;
         HeadInput();
     }
 
     void PlaceHats()
     {
-        for (int i = 0; i < hats.Length; i++)
+        for (int i = 0; i < hats.Count; i++)
         {
             hats[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder = i;
             hats[i].gameObject.transform.position = gameObject.transform.position + new Vector3(0, 1*i+1, 0);
@@ -119,7 +124,28 @@ public class PlayerHeadHats : MonoBehaviour
         }
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Sombrero")
+        {
+            AddHat(collision.gameObject);
+        }
+    }
+
+    public void AddHat(GameObject hat)
+    {
+        if (!addedHatThisFrame)
+        {
+            IHat h = hat.GetComponent<IHat>();
+            Destroy(hat.GetComponent<BoxCollider2D>());
+            hat.transform.SetParent(gameObject.transform);
+
+            hats.Add(h);
+            PlaceHats();
+            addedHatThisFrame = true;
+        }
+    }
 
     public void EnableShoot()
     {
